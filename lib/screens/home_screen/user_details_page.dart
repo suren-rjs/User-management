@@ -19,7 +19,6 @@ class UserDetails extends StatefulWidget {
   _UserDetailsState createState() => _UserDetailsState();
 }
 
-String selectedImageForUpload = '';
 
 class _UserDetailsState extends State<UserDetails> {
   bool isEditableForm = false;
@@ -27,8 +26,7 @@ class _UserDetailsState extends State<UserDetails> {
   late TextEditingController contactController;
   late TextEditingController passwordController;
   late TextEditingController passwordController1;
-  TextEditingController imageUrlController =
-      TextEditingController(text: selectedImageForUpload);
+  TextEditingController imageUrlController =  TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -39,7 +37,7 @@ class _UserDetailsState extends State<UserDetails> {
     contactController = TextEditingController();
     passwordController = TextEditingController();
     passwordController1 = TextEditingController();
-    imageUrlController = TextEditingController(text: selectedImageForUpload);
+    imageUrlController = TextEditingController();
   }
 
   @override

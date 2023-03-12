@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:user_management/app_constants/app_colors.dart';
-import 'package:user_management/screens/home_screen/user_details_page.dart';
 
 class UserAvatarImage extends StatefulWidget {
   const UserAvatarImage({
@@ -24,15 +23,10 @@ class UserAvatarImage extends StatefulWidget {
 
 class _UserAvatarImageState extends State<UserAvatarImage> {
   final picker = ImagePicker();
-  XFile? _imageFile;
 
   @override
   void initState() {
     super.initState();
-    if (widget.imagePathController.text.isEmpty) {
-      widget.imagePathController.text = selectedImageForUpload;
-    }
-    _imageFile = XFile(widget.imagePathController.text);
   }
 
   @override
@@ -46,8 +40,6 @@ class _UserAvatarImageState extends State<UserAvatarImage> {
     setState(() {
       if (pickedFile != null) {
         widget.imagePathController.text = pickedFile.path;
-        selectedImageForUpload = pickedFile.path;
-        _imageFile = XFile(widget.imagePathController.text);
       } else {
         if (kDebugMode) {
           print('No image selected.');
